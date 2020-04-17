@@ -32,16 +32,16 @@ public class PlayerController : MonoBehaviour
         if (xMovement > 0)
         {
             sr.flipX = false;
-            //animator.Play("PlayerWalk");
+            animator.Play("Player_Run");
         }
         else if (xMovement < 0)
         {
             sr.flipX = true;
-            //animator.Play("PlayerWalk");
+            animator.Play("Player_Run");
         }
         else
         {
-            //animator.Play("PlayerIdle");
+            animator.Play("Player_Idle");
         }
 
         //Detect if the player is on the ground
@@ -53,13 +53,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             isGrounded = false;
-        }
-
-        //Jump with spacebar
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
-        {
-            Debug.Log("Jump");
-            rb2d.AddForce(Vector2.up * jumpForce);
         }
 
         //Jump with up arrow key
