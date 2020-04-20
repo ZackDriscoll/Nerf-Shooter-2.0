@@ -11,8 +11,16 @@ public class GameManager : MonoBehaviour
     //Scene number to change
     public int currentScene = 0;
 
-    //Score showing number of coins collected
+    //Score showing number of tokens collected
     public int playerScore = 0;
+
+    //Player life total
+    public int lives = 3;
+
+    //Prefabs and objects to interact with
+    public GameObject playerPrefab;
+    public GameObject enemyPrefab;
+    public GameObject player;
 
     //Destroy second GameManager if there is one
     void Awake()
@@ -56,5 +64,10 @@ public class GameManager : MonoBehaviour
         {
             Application.Quit();
         }
+    }
+
+    public void Respawn()
+    {
+        player = Instantiate(playerPrefab);
     }
 }

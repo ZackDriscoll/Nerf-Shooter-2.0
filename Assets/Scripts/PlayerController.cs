@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public Transform groundPoint;
     public bool isGrounded = false;
 
+    public GameObject bulletPrefab;
+    public Transform firePoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,6 +70,31 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Jump");
             rb2d.AddForce(Vector2.up * jumpForce);
+        }
+
+        //Press the spacebar to shoot
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            Shoot();
+        }
+    }
+
+    public void Shoot()
+    {
+        Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    void OnDestroy()
+    {
+        //If the player dies, they lose a life.
+        GameManager.instance.lives -= 1;
+        if (GameManager.instance.lives > 0)
+        {
+            GameManager.instance.Respawn();
+        }
+        else
+        {
+            Debug.Log("Game Over");
         }
     }
 }

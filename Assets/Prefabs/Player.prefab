@@ -33,6 +33,7 @@ Transform:
   m_LocalScale: {x: 2.65, y: 2.65, z: 2.65}
   m_Children:
   - {fileID: 8726156967070794685}
+  - {fileID: 3323409783776347865}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -185,6 +186,39 @@ MonoBehaviour:
   jumpForce: 250
   groundPoint: {fileID: 8726156967070794685}
   isGrounded: 0
+  bulletPrefab: {fileID: 6702030282464757813, guid: ebe5592a8c43705419c9d6d72ce48968,
+    type: 3}
+  firePoint: {fileID: 3323409783776347865}
+--- !u!1 &5136810699937010832
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3323409783776347865}
+  m_Layer: 0
+  m_Name: Fire Point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3323409783776347865
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5136810699937010832}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.233, y: 0.031, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 9136917145179617669}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6502267456204850159
 GameObject:
   m_ObjectHideFlags: 0
