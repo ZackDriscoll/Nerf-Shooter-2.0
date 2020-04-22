@@ -32,14 +32,19 @@ public class PlayerController : MonoBehaviour
         //Controlls Horizontal movement
         float xMovement = Input.GetAxis("Horizontal") * movementSpeed;
         rb2d.velocity = new Vector2(xMovement, rb2d.velocity.y);
+        
+        //when moving right
         if (xMovement > 0)
         {
-            sr.flipX = false;
+            //face right
+            tf.rotation = Quaternion.Euler(0, 0, 0);
             animator.Play("Player_Run");
         }
+        //when moving left
         else if (xMovement < 0)
         {
-            sr.flipX = true;
+            //face left
+            tf.rotation = Quaternion.Euler(0, 180, 0);
             animator.Play("Player_Run");
         }
         else
@@ -82,6 +87,14 @@ public class PlayerController : MonoBehaviour
     public void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Enemy Bullet")
+        {
+            Destroy(this.gameObject);
+        }
     }
 
     void OnDestroy()

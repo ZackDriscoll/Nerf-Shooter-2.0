@@ -8,7 +8,7 @@ public class NerfCollectable : MonoBehaviour
     public int points = 0;
 
     //Audio clip to play when pickup is collected
-    public AudioClip audioClip;
+    //public AudioClip audioClip;
 
     //Coin actions
     void OnTriggerEnter2D(Collider2D collision)

@@ -4,16 +4,30 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject enemyBulletPrefab;
+    public Transform firePoint;
+
+    public float waitTime = 1.0f;
+    public float timer = 0.0f;
+
     void Start()
     {
-        
+        GameManager.instance.enemiesList.Add(this.gameObject);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        timer += Time.deltaTime;
+        if (timer > waitTime)
+        {
+            Shoot();
+            timer = timer - waitTime;
+        }
+    }
+
+    void Shoot()
+    {
+        Instantiate(enemyBulletPrefab, firePoint.position, firePoint.rotation);
     }
 
     void OnCollisionEnter2D(Collision2D otherObject)
@@ -31,5 +45,10 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(this.gameObject);
         }
+    }
+
+    void OnDestroy()
+    {
+        GameManager.instance.enemiesList.Remove(this.gameObject);
     }
 }

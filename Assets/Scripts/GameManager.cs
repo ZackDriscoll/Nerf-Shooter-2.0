@@ -21,6 +21,11 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
     public GameObject player;
+    public GameObject levelEnd;
+
+    //Enemies list
+    public List<GameObject> enemiesList = new List<GameObject>();
+    public GameObject[] enemyPrefabs;
 
     //Destroy second GameManager if there is one
     void Awake()
@@ -69,5 +74,17 @@ public class GameManager : MonoBehaviour
     public void Respawn()
     {
         player = Instantiate(playerPrefab);
+    }
+
+    public void isClear()
+    {
+        if (enemiesList.Count > 0)
+        {
+            levelEnd.SetActive(false);
+        }
+        else if (enemiesList.Count <= 0)
+        {
+            levelEnd.SetActive(true);
+        }
     }
 }
