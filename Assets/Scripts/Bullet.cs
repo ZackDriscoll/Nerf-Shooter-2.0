@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    //Affect bullet's speed and position
     public Transform tf;
     public float bulletSpeed = 10.0f;
 
@@ -22,6 +23,7 @@ public class Bullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D otherObject)
     {
+        //Destroy an enemy if they're hit by player bullet
         if (otherObject.gameObject == GameManager.instance.enemyPrefab)
         {
             Destroy(otherObject.gameObject);

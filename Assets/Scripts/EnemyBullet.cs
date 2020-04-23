@@ -22,6 +22,7 @@ public class EnemyBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D otherObject)
     {
+        //Destroy player if they hit the enemy bullet
         if (otherObject.gameObject == GameManager.instance.playerPrefab)
         {
             Destroy(otherObject.gameObject);

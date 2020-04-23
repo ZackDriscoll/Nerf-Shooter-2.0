@@ -696,8 +696,7 @@ MonoBehaviour:
   player: {fileID: 1776516086408576854, guid: e6f821a4a5cc80e4d84d23be9a87b638, type: 3}
   levelEnd: {fileID: 7118689056685939557, guid: e02c50f6babf33c4f9b06f3d11222ed5,
     type: 3}
-  enemiesList:
-  - {fileID: 2415333225251602322, guid: 93a8e915e3cc7f646a4e414addf4f79e, type: 3}
+  enemiesList: []
   enemyPrefabs:
   - {fileID: 2415333225251602322, guid: 93a8e915e3cc7f646a4e414addf4f79e, type: 3}
 --- !u!4 &1694462355

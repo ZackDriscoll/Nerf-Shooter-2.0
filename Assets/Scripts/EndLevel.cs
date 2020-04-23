@@ -18,6 +18,7 @@ public class EndLevel : MonoBehaviour
         }
     }
 
+    //Load the next scene
     public void LoadNextScene()
     {
         SceneManager.LoadScene(currentScene + 1);

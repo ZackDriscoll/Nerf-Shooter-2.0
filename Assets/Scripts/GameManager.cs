@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -19,13 +20,8 @@ public class GameManager : MonoBehaviour
 
     //Prefabs and objects to interact with
     public GameObject playerPrefab;
-    public GameObject enemyPrefab;
     public GameObject player;
-    public GameObject levelEnd;
-
-    //Enemies list
-    public List<GameObject> enemiesList = new List<GameObject>();
-    public GameObject[] enemyPrefabs;
+    public GameObject enemyPrefab;
 
     //Destroy second GameManager if there is one
     void Awake()
@@ -63,7 +59,7 @@ public class GameManager : MonoBehaviour
     }
 
     //Allows user to quit when they press the escape key
-    private void Update()
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -71,20 +67,9 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    //Respawn player if they die
     public void Respawn()
     {
         player = Instantiate(playerPrefab);
-    }
-
-    public void isClear()
-    {
-        if (enemiesList.Count > 0)
-        {
-            levelEnd.SetActive(false);
-        }
-        else if (enemiesList.Count <= 0)
-        {
-            levelEnd.SetActive(true);
-        }
     }
 }

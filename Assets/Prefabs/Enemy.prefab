@@ -181,6 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b24404ff3f99fd046ae124b97bf95fac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 2415333225251602322}
   enemyBulletPrefab: {fileID: 4340776680061663683, guid: 05eee34dce46c414bab01e3b33560203,
     type: 3}
   firePoint: {fileID: 8353012972112909049}

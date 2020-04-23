@@ -4,18 +4,27 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    //Components to manipulate
     private Transform tf;
     private Rigidbody2D rb2d;
     private SpriteRenderer sr;
     private Animator animator;
 
+    //Variables to control the player
     public float movementSpeed = 5.0f;
     public float jumpForce = 500.0f;
     public Transform groundPoint;
     public bool isGrounded = false;
 
+    //Reference to bullet and fire point game objects
     public GameObject bulletPrefab;
     public Transform firePoint;
+
+    //Don't destroy the player when loading the next scene
+    void Awake()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -49,6 +58,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            //Not Moving
             animator.Play("Player_Idle");
         }
 
@@ -84,11 +94,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    //Spawn a bullet from the fire point
     public void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
     }
 
+    //Destroy player if they are hit by an enemy bullet
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.tag == "Enemy Bullet")

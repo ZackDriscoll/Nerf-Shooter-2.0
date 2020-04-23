@@ -4,22 +4,29 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public GameObject playerPrefab;
-
-    //Private variable to store the offset distance between the player and camera
-    private Vector3 offset;
+    //Variables for manipulating distance, player, and camera
+    public float cameraDistOffset = 10;
+    private Camera mainCamera;
+    private GameObject player;
 
     // Use this for initialization
     void Start()
     {
-        //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-        offset = transform.position - playerPrefab.transform.position;
+        mainCamera = GetComponent<Camera>();
+        player = GameObject.Find("Player");
     }
 
-    // LateUpdate is called after Update each frame
-    void LateUpdate()
+    // Update is called once per frame
+    void Update()
     {
-        // Set the position of the camera's transform to be the same as the player's, but offset by the calculated offset distance.
-        transform.position = playerPrefab.transform.position + offset;
+        //Should the player die, find them again when they respawn
+        if (player == null)
+        {
+            player = GameObject.Find("Player(Clone)");
+        }        
+
+        //Match camera position with player's x and y coordinates
+        Vector3 playerInfo = player.transform.transform.position;
+        mainCamera.transform.position = new Vector3(playerInfo.x, playerInfo.y, playerInfo.z - cameraDistOffset);
     }
 }

@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
+    //Objects to manipulate
+    public GameObject enemyPrefab;
     public GameObject enemyBulletPrefab;
     public Transform firePoint;
 
+    //Timer values
     public float waitTime = 1.0f;
     public float timer = 0.0f;
 
-    void Start()
-    {
-        GameManager.instance.enemiesList.Add(this.gameObject);
-    }
-
     void Update()
     {
+        //Timer to shoot bullets periodically
         timer += Time.deltaTime;
         if (timer > waitTime)
         {
@@ -27,28 +26,25 @@ public class EnemyController : MonoBehaviour
 
     void Shoot()
     {
+        //Shoot a bullet from enemy fire point
         Instantiate(enemyBulletPrefab, firePoint.position, firePoint.rotation);
     }
 
     void OnCollisionEnter2D(Collision2D otherObject)
     {
+        //Destroy player if they collide
         if (otherObject.gameObject == GameManager.instance.player)
         {
             Destroy(otherObject.gameObject);
-            Destroy(this.gameObject);
         }
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        //Destroy enemy on collision with player's bullet
         if (collision.tag == "Player Bullet")
         {
             Destroy(this.gameObject);
         }
-    }
-
-    void OnDestroy()
-    {
-        GameManager.instance.enemiesList.Remove(this.gameObject);
     }
 }
