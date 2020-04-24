@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
     void OnCollisionEnter2D(Collision2D otherObject)
     {
         //Destroy player if they collide
-        if (otherObject.gameObject == GameManager.instance.player)
+        if (otherObject.gameObject.name == "Player" || otherObject.gameObject.name == "Player(Clone)")
         {
             Destroy(otherObject.gameObject);
         }

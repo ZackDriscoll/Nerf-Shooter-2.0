@@ -1,16 +1,20 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class EnemyBullet : MonoBehaviour
 {
     public Transform tf;
     public float bulletSpeed = 10.0f;
 
+    public TilemapCollider2D tc;
+
     // Start is called before the first frame update
     void Start()
     {
         tf = gameObject.GetComponent<Transform>();
+        tc = gameObject.GetComponent<TilemapCollider2D>();
     }
 
     // Update is called once per frame

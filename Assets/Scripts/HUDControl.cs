@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,23 +10,24 @@ public class HUDControl : MonoBehaviour
     public Text collectableText;
     public Text livesText;
 
+    //Variables used from Game Manager
+    public int Score;
+    public int Lives;
+
     void Awake()
     {
         //Don't destroy UI when loading next scene
-        DontDestroyOnLoad(this.gameObject);
-    }
-
-    void Start()
-    {
-        //Get UI Text components
-        collectableText = GetComponent<Text>();
-        livesText = GetComponent<Text>();
+        DontDestroyOnLoad(gameObject);
     }
 
     void Update()
     {
+        //everytime I call update, update the scores from the game manager
+        Score = GameManager.instance.playerScore;
+        Lives = GameManager.instance.lives;
+
         //Change text based on player score and lives values
-        collectableText.text = "X " + GameManager.instance.playerScore;
-        collectableText.text = "X " + GameManager.instance.lives;
+        collectableText.text = "X " + Score.ToString();
+        livesText.text = "X " + Lives.ToString();
     }
 }

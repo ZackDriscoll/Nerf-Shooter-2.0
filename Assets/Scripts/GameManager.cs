@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     public GameObject player;
     public GameObject enemyPrefab;
 
+    //Spawn Point to interact with
+    public GameObject spawnPoint;
+
     //Destroy second GameManager if there is one
     void Awake()
     {
@@ -64,6 +67,11 @@ public class GameManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             Application.Quit();
+        }
+
+        if (lives <= 0)
+        {
+            SceneManager.LoadScene(04);
         }
     }
 

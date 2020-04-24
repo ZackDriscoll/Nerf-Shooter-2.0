@@ -12,9 +12,10 @@ public class EndLevel : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other)
     {
         //If the game object that entered the trigger is our player, then load the next level.
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.name == "Player" || other.gameObject.name == "Player(Clone)")
         {
             LoadNextScene();
+            GameManager.instance.lives = 4;
         }
     }
 

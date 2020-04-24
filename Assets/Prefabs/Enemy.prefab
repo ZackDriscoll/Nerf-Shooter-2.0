@@ -185,7 +185,7 @@ MonoBehaviour:
   enemyBulletPrefab: {fileID: 4340776680061663683, guid: 05eee34dce46c414bab01e3b33560203,
     type: 3}
   firePoint: {fileID: 8353012972112909049}
-  waitTime: 1
+  waitTime: 2
   timer: 0
 --- !u!1 &7414459384421484044
 GameObject:

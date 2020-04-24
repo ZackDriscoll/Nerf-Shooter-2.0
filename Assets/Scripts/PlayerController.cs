@@ -20,12 +20,6 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
-    //Don't destroy the player when loading the next scene
-    void Awake()
-    {
-        DontDestroyOnLoad(this.gameObject);
-    }
-
     // Start is called before the first frame update
     void Start()
     {
