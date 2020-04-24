@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
     //Allows user to quit when they press the escape key
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape))
         {
             Application.Quit();
         }

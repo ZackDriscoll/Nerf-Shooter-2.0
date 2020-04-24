@@ -20,6 +20,9 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    //Audio clip to play when bullet is fired
+    public AudioClip audioClip;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -92,6 +95,9 @@ public class PlayerController : MonoBehaviour
     public void Shoot()
     {
         Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+
+        //Play the Pew Pew sound effect
+        AudioSource.PlayClipAtPoint(audioClip, transform.position);
     }
 
     //Destroy player if they are hit by an enemy bullet

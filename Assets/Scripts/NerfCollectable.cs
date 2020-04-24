@@ -5,7 +5,7 @@ using UnityEngine;
 public class NerfCollectable : MonoBehaviour
 {
     //Audio clip to play when pickup is collected
-    //public AudioClip audioClip;
+    public AudioClip audioClip;
 
     //Coin actions
     void OnTriggerEnter2D(Collider2D collision)
@@ -16,7 +16,7 @@ public class NerfCollectable : MonoBehaviour
             GameManager.instance.playerScore += 1;
 
             //Play the Nerf Token sound effect
-            //AudioSource.PlayClipAtPoint(audioClip, transform.position);
+            AudioSource.PlayClipAtPoint(audioClip, transform.position);
 
             //Destroy token when collected
             Destroy(this.gameObject);
